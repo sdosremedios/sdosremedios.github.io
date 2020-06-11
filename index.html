@@ -11675,7 +11675,7 @@ chmod a+x &lt;span&gt;certbot&lt;/span&gt;-auto&lt;/pre&gt;&lt;p style=&quot;mar
 &lt;!DOCTYPE en-note SYSTEM &quot;http://xml.evernote.com/pub/enml2.dtd&quot;&gt;
 &lt;en-note&gt;&lt;div style=&quot;-evernote-webclip: true;&quot;&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;h1&gt;How to Install &lt;span&gt;Joomla&lt;/span&gt; on Ubuntu 16&lt;/h1&gt;&lt;div&gt;&lt;div&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;&lt;span&gt;Joomla&lt;/span&gt; is a powerful content management system for building websites and apps. Written in PHP, &lt;span&gt;Joomla&lt;/span&gt; powers a variety of websites, including portals, intranets, online publications, e-commerce shops, and government apps. &lt;span&gt;Joomla&lt;/span&gt; also has a rich ecosystem of plugins, themes, and professional consultants to ease the process of building whatever you might want on its rich platform. Best of all, it is freely available and open source, meaning anyone can install &lt;span&gt;Joomla&lt;/span&gt; and customize it to meet their needs. Here we will learn how to get &lt;span&gt;Joomla&lt;/span&gt; up and running quickly on an Ubuntu 16.04 server.&lt;/p&gt;&lt;h2&gt;Getting Started&lt;/h2&gt;&lt;p&gt;Confirm that you have the following before you follow this guide:&lt;br clear=&quot;none&quot;/&gt; • 1 Node (&lt;a shape=&quot;rect&quot; href=&quot;https://www.globo.tech/cloud-server-pricing&quot; target=&quot;_blank&quot;&gt;Cloud Server&lt;/a&gt; or &lt;a shape=&quot;rect&quot; href=&quot;http://www.globo.tech/dedicated-server-hosting&quot; target=&quot;_blank&quot;&gt;Dedicated Server&lt;/a&gt;) running Ubuntu 16.&lt;br clear=&quot;none&quot;/&gt; • Root access to the node or one sudo non-root user&lt;br clear=&quot;none&quot;/&gt; • A LAMP stack with Apache, PHP and MySql&lt;/p&gt;&lt;p&gt;At this guide’s conclusion, your server will be running the &lt;span&gt;Joomla&lt;/span&gt; CMS, and is ready for you to build out your desired site or app.&lt;/p&gt;&lt;h2&gt;Tutorial&lt;/h2&gt;&lt;p&gt;Let’s get started. To begin, we’ll install some basic packages that are necessary to install &lt;span&gt;Joomla&lt;/span&gt;. We’ll also update the repository list.&lt;/p&gt;&lt;p&gt;&lt;code&gt;apt-get update &amp;amp;&amp;amp; apt-get install unzip -y&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Joomla&lt;/span&gt; stores its content in a database. As such, we’ll need to ensure that this database exists before continuing.&lt;/p&gt;&lt;p&gt;&lt;code&gt;mysql -u root -p&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;create database &lt;span&gt;joomla&lt;/span&gt;;&lt;br clear=&quot;none&quot;/&gt; create user joomlauser@localhost IDENTIFIED BY 'joomlapassword';&lt;br clear=&quot;none&quot;/&gt; GRANT all ON &lt;span&gt;joomla&lt;/span&gt;.* TO joomlauser@localhost;&lt;br clear=&quot;none&quot;/&gt; flush privileges;&lt;br clear=&quot;none&quot;/&gt; exit&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Several additional PHP modules are required by &lt;span&gt;Joomla&lt;/span&gt;. Install those next.&lt;/p&gt;&lt;p&gt;&lt;code&gt;apt-get install php-mysql php-curl php-json php-cgi php libapache2-mod-php php-mcrypt php-xml php-xmlrpc&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Now we’ll fetch &lt;span&gt;Joomla&lt;/span&gt;, which is shipped as a zip archive. After retrieving it, we’ll unzip it in the document root directory of your Apache server.&lt;/p&gt;&lt;p&gt;&lt;code&gt;rm -rf /var/www/html/*&lt;br clear=&quot;none&quot;/&gt; wget https://github.com/&lt;span&gt;joomla&lt;/span&gt;/&lt;span&gt;joomla&lt;/span&gt;-cms/releases/download/3.6.0/Joomla_3.6.0-Stable-Full_Package.zip&lt;br clear=&quot;none&quot;/&gt; unzip -q &lt;span&gt;Joomla&lt;/span&gt;*.zip -d /var/www/html&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You’ll find the latest version of &lt;span&gt;Joomla&lt;/span&gt; at &lt;a shape=&quot;rect&quot; href=&quot;https://www.joomla.org/download.html&quot; target=&quot;_blank&quot;&gt;https://www.&lt;span&gt;joomla&lt;/span&gt;.org/download.html&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Apache will need some access permissions on its document root directory, so &lt;span&gt;Joomla&lt;/span&gt; can update the directory contents as it runs. Here we grant it the permissions it needs to do so.&lt;/p&gt;&lt;p&gt;&lt;code&gt;chown -R www-data.www-data /var/www/html&lt;br clear=&quot;none&quot;/&gt; chmod -R 755 /var/www/html&lt;br clear=&quot;none&quot;/&gt; systemctl restart apache2.service&lt;/code&gt;&lt;/p&gt;&lt;p&gt;The rest of &lt;span&gt;Joomla&lt;/span&gt;’s installation is done online. Visit http://your_ip/ to access &lt;span&gt;Joomla&lt;/span&gt;’s web-based installer.&lt;/p&gt;&lt;p&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/p&gt;&lt;div&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://www.globo.tech/learning-center/wp-content/uploads/2016/08/J30_Installation_screen_page_1.png&quot; target=&quot;_blank&quot;&gt;&lt;en-media alt=&quot;Joomla&quot; width=&quot;576&quot; height=&quot;532&quot; hash=&quot;a9f4692784cf745603ab3d28d4770b1f&quot; type=&quot;image/png&quot;&gt;&lt;/en-media&gt;&lt;/a&gt;&lt;/div&gt;&lt;p&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/p&gt;&lt;p&gt;Once you’ve completed the online installation, you’ll want to remove the installation directory. While efforts are made to prevent it from running again, removing the installation directory prevents malicious users from running it again later.&lt;/p&gt;&lt;p&gt;&lt;code&gt;cd /var/www/html/&lt;br clear=&quot;none&quot;/&gt; rm -rf installation/&lt;/code&gt;&lt;/p&gt;&lt;h2&gt;Conclusion&lt;/h2&gt;&lt;p&gt;You now have &lt;span&gt;Joomla&lt;/span&gt; running on your Ubuntu 16.04 server. It is now time to begin building your site, developing your app, or otherwise transforming this basic installation into the website you imagine. If this guide was helpful to you, kindly share it with others who may also be interested.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/div&gt;&lt;/en-note&gt;</pre>
 </div>
-<div created="20200529013806000" modified="20200611182925324" source="web.clip7" source-application="webclipper.evernote" source-url="https://pimylifeup.com/raspberry-pi-dns-server/" tags="" title="How to Setup a Raspberry Pi DNS Server - Pi My Life Up" type="text/vnd.tiddlywiki">
+<div created="20200529013806000" modified="20200611183307415" source="web.clip7" source-application="webclipper.evernote" source-url="https://pimylifeup.com/raspberry-pi-dns-server/" tags="" title="How to Setup a Raspberry Pi DNS Server - Pi My Life Up" type="text/vnd.tiddlywiki">
 <pre>
 How to Setup a Raspberry Pi DNS Server
 pimylifeup.com/raspberry-pi-dns-server
@@ -11701,19 +11701,16 @@ Equipment List
 Here is all the equipment that I recommend for this Raspberry Pi DNS Server tutorial.
 
 Recommended
-Raspberry Pi 2, 3 or 4
-
-Micro SD Card
-
-Power Supply
-
-Ethernet Cord or WiFi dongle (The Pi 3 and 4 has WiFi inbuilt)
+* Raspberry Pi 2, 3 or 4
+* Micro SD Card
+* Power Supply
+* Ethernet Cord or WiFi dongle (The Pi 3 and 4 has WiFi inbuilt)
 
 Optional
-Raspberry Pi Case
+* Raspberry Pi Case
 
 Setting up a DNS Server on the Raspberry Pi
-1. In this tutorial, we will be making use of the Raspbian operating system. Other operating systems might work, but is not guaranteed.
+#. In this tutorial, we will be making use of the Raspbian operating system. Other operating systems might work, but is not guaranteed.
 
 Before we can set up our Raspberry Pi as a DNS server, we must ensure everything is up to date.
 
@@ -11721,7 +11718,7 @@ We can do this by running the following two commands on our Raspberry Pi.
 
 sudo apt update
 sudo apt upgrade
-2. Once the update has completed, we can proceed to install the software that we will be using to setup our Pi as a DNS server.
+#. Once the update has completed, we can proceed to install the software that we will be using to setup our Pi as a DNS server.
 
 This software package that we are installing is called DNSmasq. DNSmasq is a lightweight and straightforward DNS server that was designed with small-scale networks in mind.
 
