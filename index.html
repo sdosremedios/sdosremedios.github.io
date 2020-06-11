@@ -9965,7 +9965,7 @@ Error message and password prompt
 <div created="20200610164503296" modified="20200611174533358" title="$:/SiteTitle">
 <pre>My ~TiddlyWiki </pre>
 </div>
-<div created="20200610165018296" modified="20200611181445781" title="$:/state/sidebar">
+<div created="20200610165018296" modified="20200611182841682" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20200609232556995" modified="20200609232556995" title="$:/state/tab--1498284803">
@@ -9980,13 +9980,13 @@ Error message and password prompt
 <div created="20200609231321611" modified="20200609231321611" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200609231527592" modified="20200611180946103" title="$:/state/tab/sidebar--595412856">
+<div created="20200609231527592" modified="20200611182832704" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20200611180947960" list="[[Birthday Thoughts]]" modified="20200611180947960" title="$:/StoryList">
+<div created="20200611182611394" list="[[How to Setup a Raspberry Pi DNS Server - Pi My Life Up]]" modified="20200611182838331" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20200609232524004" modified="20200609232553700" title="$:/temp/advancedsearch">
@@ -11675,17 +11675,159 @@ chmod a+x &lt;span&gt;certbot&lt;/span&gt;-auto&lt;/pre&gt;&lt;p style=&quot;mar
 &lt;!DOCTYPE en-note SYSTEM &quot;http://xml.evernote.com/pub/enml2.dtd&quot;&gt;
 &lt;en-note&gt;&lt;div style=&quot;-evernote-webclip: true;&quot;&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;h1&gt;How to Install &lt;span&gt;Joomla&lt;/span&gt; on Ubuntu 16&lt;/h1&gt;&lt;div&gt;&lt;div&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p&gt;&lt;span&gt;Joomla&lt;/span&gt; is a powerful content management system for building websites and apps. Written in PHP, &lt;span&gt;Joomla&lt;/span&gt; powers a variety of websites, including portals, intranets, online publications, e-commerce shops, and government apps. &lt;span&gt;Joomla&lt;/span&gt; also has a rich ecosystem of plugins, themes, and professional consultants to ease the process of building whatever you might want on its rich platform. Best of all, it is freely available and open source, meaning anyone can install &lt;span&gt;Joomla&lt;/span&gt; and customize it to meet their needs. Here we will learn how to get &lt;span&gt;Joomla&lt;/span&gt; up and running quickly on an Ubuntu 16.04 server.&lt;/p&gt;&lt;h2&gt;Getting Started&lt;/h2&gt;&lt;p&gt;Confirm that you have the following before you follow this guide:&lt;br clear=&quot;none&quot;/&gt; • 1 Node (&lt;a shape=&quot;rect&quot; href=&quot;https://www.globo.tech/cloud-server-pricing&quot; target=&quot;_blank&quot;&gt;Cloud Server&lt;/a&gt; or &lt;a shape=&quot;rect&quot; href=&quot;http://www.globo.tech/dedicated-server-hosting&quot; target=&quot;_blank&quot;&gt;Dedicated Server&lt;/a&gt;) running Ubuntu 16.&lt;br clear=&quot;none&quot;/&gt; • Root access to the node or one sudo non-root user&lt;br clear=&quot;none&quot;/&gt; • A LAMP stack with Apache, PHP and MySql&lt;/p&gt;&lt;p&gt;At this guide’s conclusion, your server will be running the &lt;span&gt;Joomla&lt;/span&gt; CMS, and is ready for you to build out your desired site or app.&lt;/p&gt;&lt;h2&gt;Tutorial&lt;/h2&gt;&lt;p&gt;Let’s get started. To begin, we’ll install some basic packages that are necessary to install &lt;span&gt;Joomla&lt;/span&gt;. We’ll also update the repository list.&lt;/p&gt;&lt;p&gt;&lt;code&gt;apt-get update &amp;amp;&amp;amp; apt-get install unzip -y&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Joomla&lt;/span&gt; stores its content in a database. As such, we’ll need to ensure that this database exists before continuing.&lt;/p&gt;&lt;p&gt;&lt;code&gt;mysql -u root -p&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;create database &lt;span&gt;joomla&lt;/span&gt;;&lt;br clear=&quot;none&quot;/&gt; create user joomlauser@localhost IDENTIFIED BY 'joomlapassword';&lt;br clear=&quot;none&quot;/&gt; GRANT all ON &lt;span&gt;joomla&lt;/span&gt;.* TO joomlauser@localhost;&lt;br clear=&quot;none&quot;/&gt; flush privileges;&lt;br clear=&quot;none&quot;/&gt; exit&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Several additional PHP modules are required by &lt;span&gt;Joomla&lt;/span&gt;. Install those next.&lt;/p&gt;&lt;p&gt;&lt;code&gt;apt-get install php-mysql php-curl php-json php-cgi php libapache2-mod-php php-mcrypt php-xml php-xmlrpc&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Now we’ll fetch &lt;span&gt;Joomla&lt;/span&gt;, which is shipped as a zip archive. After retrieving it, we’ll unzip it in the document root directory of your Apache server.&lt;/p&gt;&lt;p&gt;&lt;code&gt;rm -rf /var/www/html/*&lt;br clear=&quot;none&quot;/&gt; wget https://github.com/&lt;span&gt;joomla&lt;/span&gt;/&lt;span&gt;joomla&lt;/span&gt;-cms/releases/download/3.6.0/Joomla_3.6.0-Stable-Full_Package.zip&lt;br clear=&quot;none&quot;/&gt; unzip -q &lt;span&gt;Joomla&lt;/span&gt;*.zip -d /var/www/html&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You’ll find the latest version of &lt;span&gt;Joomla&lt;/span&gt; at &lt;a shape=&quot;rect&quot; href=&quot;https://www.joomla.org/download.html&quot; target=&quot;_blank&quot;&gt;https://www.&lt;span&gt;joomla&lt;/span&gt;.org/download.html&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Apache will need some access permissions on its document root directory, so &lt;span&gt;Joomla&lt;/span&gt; can update the directory contents as it runs. Here we grant it the permissions it needs to do so.&lt;/p&gt;&lt;p&gt;&lt;code&gt;chown -R www-data.www-data /var/www/html&lt;br clear=&quot;none&quot;/&gt; chmod -R 755 /var/www/html&lt;br clear=&quot;none&quot;/&gt; systemctl restart apache2.service&lt;/code&gt;&lt;/p&gt;&lt;p&gt;The rest of &lt;span&gt;Joomla&lt;/span&gt;’s installation is done online. Visit http://your_ip/ to access &lt;span&gt;Joomla&lt;/span&gt;’s web-based installer.&lt;/p&gt;&lt;p&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/p&gt;&lt;div&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://www.globo.tech/learning-center/wp-content/uploads/2016/08/J30_Installation_screen_page_1.png&quot; target=&quot;_blank&quot;&gt;&lt;en-media alt=&quot;Joomla&quot; width=&quot;576&quot; height=&quot;532&quot; hash=&quot;a9f4692784cf745603ab3d28d4770b1f&quot; type=&quot;image/png&quot;&gt;&lt;/en-media&gt;&lt;/a&gt;&lt;/div&gt;&lt;p&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/p&gt;&lt;p&gt;Once you’ve completed the online installation, you’ll want to remove the installation directory. While efforts are made to prevent it from running again, removing the installation directory prevents malicious users from running it again later.&lt;/p&gt;&lt;p&gt;&lt;code&gt;cd /var/www/html/&lt;br clear=&quot;none&quot;/&gt; rm -rf installation/&lt;/code&gt;&lt;/p&gt;&lt;h2&gt;Conclusion&lt;/h2&gt;&lt;p&gt;You now have &lt;span&gt;Joomla&lt;/span&gt; running on your Ubuntu 16.04 server. It is now time to begin building your site, developing your app, or otherwise transforming this basic installation into the website you imagine. If this guide was helpful to you, kindly share it with others who may also be interested.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/div&gt;&lt;/en-note&gt;</pre>
 </div>
-<div created="20200529013806000" modified="20200529014007000" source="web.clip7" source-application="webclipper.evernote" source-url="https://pimylifeup.com/raspberry-pi-dns-server/" tags="" title="How to Setup a Raspberry Pi DNS Server - Pi My Life Up" type="text/html">
-<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE en-note SYSTEM &quot;http://xml.evernote.com/pub/enml2.dtd&quot;&gt;
-&lt;en-note&gt;&lt;div style=&quot;--en-clipped-content: simplified;&quot;&gt;&lt;div&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;h1&gt;How to Setup a Raspberry Pi DNS Server&lt;/h1&gt;&lt;div&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://pimylifeup.com/raspberry-pi-dns-server/&quot;&gt;&lt;en-media hash=&quot;c2477dbb25dfda76cea361673ca328b5&quot; type=&quot;image/png&quot;&gt;&lt;/en-media&gt;&lt;span&gt;pimylifeup.com&lt;/span&gt;&lt;span&gt;/raspberry-pi-dns-server&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;span&gt;Emmet&lt;/span&gt;&lt;span&gt;Nov 23, 2019&lt;/span&gt;&lt;div&gt;&lt;div&gt;&lt;p&gt;&lt;span&gt;In this tutorial, we will be walking you through the steps of setting up a DNS server on your Raspberry Pi.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;en-media width=&quot;728&quot; hash=&quot;822803fdfd7487f452708afba041df50&quot; type=&quot;image/jpeg&quot;&gt;&lt;/en-media&gt;&lt;br clear=&quot;none&quot;/&gt;&lt;span&gt;A DNS server is what handles translating a domain name such as &lt;/span&gt;&lt;span&gt;pimylifeup.com&lt;/span&gt;&lt;span&gt; to its end destination. It’s what helps transform IP addresses from something like “&lt;/span&gt;&lt;span&gt;210.345.231.345&lt;/span&gt;&lt;span&gt;” to the more user-friendly domain name system.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;By setting up a DNS server on your Raspberry Pi, you can use it to improve the time it takes for your computer to perform DNS requests.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;The DNS server on the Pi will make requests to other DNS servers to determine the IP for that request and cache it. This means when you request that same domain name again, you will be returned that request almost instantly.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;If you want to set up a DNS server on your Raspberry Pi that has a bit of extra functionality out of the box, then we recommend you check out our &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://pimylifeup.com/raspberry-pi-pi-hole/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;guide on setting up Pi-Hole&lt;/a&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Pi-Hole is a software package that comes with a bundle of extra functionality such as domain name blocking as well as an easy to use interface that allows you to manage your DNS setup with ease.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;If you want to learn how to change the DNS your Raspberry Pi uses, then be sure to follow our &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://pimylifeup.com/raspberry-pi-dns-settings/&quot;&gt;DNS settings guide&lt;/a&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Before you get started with setting up your Raspberry Pi DNS server, you should first make sure you have your Pi set up to &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://pimylifeup.com/raspberry-pi-static-ip-address/&quot;&gt;use a static IP address&lt;/a&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;h2&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;Equipment List&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;span&gt;Here is all the equipment that I recommend for this Raspberry Pi DNS Server tutorial.&lt;/span&gt;&lt;/p&gt;&lt;h3&gt;&lt;span&gt;Recommended&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;&lt;i&gt;&lt;/i&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/l8KF94/amazon/raspberrypi&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;Raspberry Pi&lt;/a&gt;&lt;span&gt; 2, 3 or 4&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;&lt;/i&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/DUVENo/amazon/microsdcard&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;Micro SD Card&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;&lt;/i&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/TwjJnF/amazon/powersupply&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;Power Supply&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;&lt;/i&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/9YIU76/amazon/ethernetcord&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;Ethernet Cord&lt;/a&gt;&lt;span&gt; or &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/89vmLk/amazon/wifidongle&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;WiFi dongle&lt;/a&gt;&lt;span&gt; (The Pi 3 and 4 has WiFi inbuilt)&lt;/span&gt;&lt;/p&gt;&lt;h3&gt;&lt;span&gt;Optional&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;&lt;i&gt;&lt;/i&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://go.pimylifeup.com/vbWKKX/allraspberrypicases&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;Raspberry Pi Case&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;Setting up a DNS Server on the Raspberry Pi&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;span&gt;1.&lt;/span&gt;&lt;span&gt; In this tutorial, we will be making use of the Raspbian operating system. Other &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://pimylifeup.com/category/projects/operating-systems/&quot;&gt;operating systems&lt;/a&gt;&lt;span&gt; might work, but is not guaranteed.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Before we can set up our Raspberry Pi as a DNS server, we must ensure everything is up to date.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;We can do this by running the following two commands on our Raspberry Pi.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo apt update
-sudo apt upgrade&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;2.&lt;/span&gt;&lt;span&gt; Once the update has completed, we can proceed to install the software that we will be using to setup our Pi as a DNS server.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;This software package that we are installing is called &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://wiki.debian.org/dnsmasq&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;DNSmasq&lt;/a&gt;&lt;span&gt;. DNSmasq is a lightweight and straightforward DNS server that was designed with small-scale networks in mind.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Thanks to its lightweight nature, DNSmasq is the perfect solution for setting up a DNS server on a Raspberry Pi as it won’t drain its limited resources.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;We can install dnsmasq to our Raspberry Pi by running the following command.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo apt install dnsmasq&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;Configuring the DNS Server&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;span&gt;1.&lt;/span&gt;&lt;span&gt; Now that we have gone ahead and installed the dnsmasq software to our Raspberry Pi, we should now make some configuration changes to it.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;The changes that we will make to its configuration file will allow your Raspberry Pi to work as a better DNS server.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;We can begin making modifications to the file by running the following command.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo nano /etc/dnsmasq.conf&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;To find the sections that you are after easier, you can make use of &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;CTRL&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt; + &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;W&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt; to search for the required text.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Find&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;#domain-needed&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Replace with&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;domain-needed&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;This option changes the DNS server so that it does not forward names that do not contain a dot (&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;) or a domain name (&lt;/span&gt;&lt;span&gt;.com&lt;/span&gt;&lt;span&gt;) to upstream nameservers.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Doing this will keep any plain names such as “&lt;/span&gt;&lt;span&gt;localhost&lt;/span&gt;&lt;span&gt;” or “&lt;/span&gt;&lt;span&gt;dlinkrouter&lt;/span&gt;&lt;span&gt;” to the local network.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Find&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;#bogus-priv&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Replace with&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;bogus-priv&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;This option stops the DNS server from forwarding reverse-lookup queries that have a local IP range to the upstream DNS servers.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Doing this helps prevent leaking the setup of a local network as the IP addresses will never be sent to the upstream servers.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Find&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;#no-resolv&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Replace with&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;no-resolv&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;With this option, we tell dnsmasq not to read the “&lt;/span&gt;&lt;span&gt;/etc/resolv.conf&lt;/span&gt;&lt;span&gt;” file for its upstream nameservers and to instead rely on the ones specified in its configuration.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Find&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;#server=/localnet/192.168.0.1&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Replace with&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;server=8.8.8.8
-server=8.8.4.4&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;Using this we instruct dnsmasq to utilize Googles DNS servers for its upstream nameservers.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;You can also make use of other public DNS’s such as &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://www.cloudflare.com/learning/dns/what-is-1.1.1.1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CloudFlare’s DNS&lt;/a&gt;&lt;span&gt; or &lt;/span&gt;&lt;a shape=&quot;rect&quot; href=&quot;https://www.opendns.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OpenDNS&lt;/a&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Find&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;#cache-size=150&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;Replace with&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;cache-size=1000&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;With this option we are increasing the amount of DNS requests that the dnsmasq software will cache.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;By increasing its cache size, we should be able to improve our Raspberry Pi’s DNS Servers overall performance and reduce the time to perform DNS lookups.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;2.&lt;/span&gt;&lt;span&gt; With the changes made to the configuration file, you can now save the file by pressing &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;CTRL&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt; + &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;X&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt; then &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;Y&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt; followed by &lt;/span&gt;&lt;kbd&gt;&lt;span&gt;ENTER&lt;/span&gt;&lt;/kbd&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;3.&lt;/span&gt;&lt;span&gt; As we have made changes to dnsmasq’s configuration, we will need to restart its service so that it reads in our changes.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;We can restart dnsmasq by running the following command.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo systemctl restart dnsmasq&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;4.&lt;/span&gt;&lt;span&gt; Because we made some changes to the dnsmasq service, we should check to ensure that it has started up correctly.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;We can check the status of our DNS server by using the command below..&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo systemctl status dnsmasq&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;If the status shows as “&lt;/span&gt;&lt;span&gt;Active: active (running)&lt;/span&gt;&lt;span&gt;” then you now have your Raspberry Pi successfully running as a DNS Server.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;You should now be able to point your device to the Rasberry Pi’s IP address to utilize it as a DNS server.&lt;/span&gt;&lt;/p&gt;&lt;h2&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;Testing the Raspberry Pi DNS Server&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;span&gt;1.&lt;/span&gt;&lt;span&gt; If you want to test the results of your Raspberry Pi DNS server without changing your DNS you can by making use of the “&lt;/span&gt;&lt;span&gt;dig&lt;/span&gt;&lt;span&gt;” tool.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;To use the dig tool on your Raspberry Pi, you will need to first install the “&lt;/span&gt;&lt;span&gt;dnsutils&lt;/span&gt;&lt;span&gt;” package by running the command below.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;sudo apt install dnsutils&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;2.&lt;/span&gt;&lt;span&gt; With the “&lt;/span&gt;&lt;span&gt;dnsutils&lt;/span&gt;&lt;span&gt;” package installed to the Raspberry Pi, we can go ahead and query our Pi DNS server by running the command below.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Using “&lt;/span&gt;&lt;span&gt;@localhost&lt;/span&gt;&lt;span&gt;” we are telling the dig tool to utilize the localhost’s DNS server for the DNS lookup.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;dig pimylifeup.com @localhost&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;3.&lt;/span&gt;&lt;span&gt; From this command, you should get a response as we have below.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;This response shows the answer that the dig software retrieved from the Raspberry Pi’s DNS server.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;From this response, you can see how long the query took to complete as well as additional information.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;pi@raspberrypi:~ $ dig pimylifeup.com
+<div created="20200529013806000" modified="20200611182925324" source="web.clip7" source-application="webclipper.evernote" source-url="https://pimylifeup.com/raspberry-pi-dns-server/" tags="" title="How to Setup a Raspberry Pi DNS Server - Pi My Life Up" type="text/vnd.tiddlywiki">
+<pre>
+How to Setup a Raspberry Pi DNS Server
+pimylifeup.com/raspberry-pi-dns-server
+EmmetNov 23, 2019
+In this tutorial, we will be walking you through the steps of setting up a DNS server on your Raspberry Pi.
 
-; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.11.5-P4-5.1-Raspbian &amp;lt;&amp;lt;&amp;gt;&amp;gt; pimylifeup.com
+
+A DNS server is what handles translating a domain name such as pimylifeup.com to its end destination. It’s what helps transform IP addresses from something like “210.345.231.345” to the more user-friendly domain name system.
+
+By setting up a DNS server on your Raspberry Pi, you can use it to improve the time it takes for your computer to perform DNS requests.
+
+The DNS server on the Pi will make requests to other DNS servers to determine the IP for that request and cache it. This means when you request that same domain name again, you will be returned that request almost instantly.
+
+If you want to set up a DNS server on your Raspberry Pi that has a bit of extra functionality out of the box, then we recommend you check out our guide on setting up Pi-Hole.
+
+Pi-Hole is a software package that comes with a bundle of extra functionality such as domain name blocking as well as an easy to use interface that allows you to manage your DNS setup with ease.
+
+If you want to learn how to change the DNS your Raspberry Pi uses, then be sure to follow our DNS settings guide.
+
+Before you get started with setting up your Raspberry Pi DNS server, you should first make sure you have your Pi set up to use a static IP address.
+
+Equipment List
+Here is all the equipment that I recommend for this Raspberry Pi DNS Server tutorial.
+
+Recommended
+Raspberry Pi 2, 3 or 4
+
+Micro SD Card
+
+Power Supply
+
+Ethernet Cord or WiFi dongle (The Pi 3 and 4 has WiFi inbuilt)
+
+Optional
+Raspberry Pi Case
+
+Setting up a DNS Server on the Raspberry Pi
+1. In this tutorial, we will be making use of the Raspbian operating system. Other operating systems might work, but is not guaranteed.
+
+Before we can set up our Raspberry Pi as a DNS server, we must ensure everything is up to date.
+
+We can do this by running the following two commands on our Raspberry Pi.
+
+sudo apt update
+sudo apt upgrade
+2. Once the update has completed, we can proceed to install the software that we will be using to setup our Pi as a DNS server.
+
+This software package that we are installing is called DNSmasq. DNSmasq is a lightweight and straightforward DNS server that was designed with small-scale networks in mind.
+
+Thanks to its lightweight nature, DNSmasq is the perfect solution for setting up a DNS server on a Raspberry Pi as it won’t drain its limited resources.
+
+We can install dnsmasq to our Raspberry Pi by running the following command.
+
+sudo apt install dnsmasq
+Configuring the DNS Server
+1. Now that we have gone ahead and installed the dnsmasq software to our Raspberry Pi, we should now make some configuration changes to it.
+
+The changes that we will make to its configuration file will allow your Raspberry Pi to work as a better DNS server.
+
+We can begin making modifications to the file by running the following command.
+
+sudo nano /etc/dnsmasq.conf
+To find the sections that you are after easier, you can make use of CTRL + W to search for the required text.
+
+Find
+
+#domain-needed
+Replace with
+
+domain-needed
+This option changes the DNS server so that it does not forward names that do not contain a dot (.) or a domain name (.com) to upstream nameservers.
+
+Doing this will keep any plain names such as “localhost” or “dlinkrouter” to the local network.
+
+Find
+
+#bogus-priv
+Replace with
+
+bogus-priv
+This option stops the DNS server from forwarding reverse-lookup queries that have a local IP range to the upstream DNS servers.
+
+Doing this helps prevent leaking the setup of a local network as the IP addresses will never be sent to the upstream servers.
+
+Find
+
+#no-resolv
+Replace with
+
+no-resolv
+With this option, we tell dnsmasq not to read the “/etc/resolv.conf” file for its upstream nameservers and to instead rely on the ones specified in its configuration.
+
+Find
+
+#server=/localnet/192.168.0.1
+Replace with
+
+server=8.8.8.8
+server=8.8.4.4
+Using this we instruct dnsmasq to utilize Googles DNS servers for its upstream nameservers.
+
+You can also make use of other public DNS’s such as CloudFlare’s DNS or OpenDNS.
+
+Find
+
+#cache-size=150
+Replace with
+
+cache-size=1000
+With this option we are increasing the amount of DNS requests that the dnsmasq software will cache.
+
+By increasing its cache size, we should be able to improve our Raspberry Pi’s DNS Servers overall performance and reduce the time to perform DNS lookups.
+
+2. With the changes made to the configuration file, you can now save the file by pressing CTRL + X then Y followed by ENTER.
+
+3. As we have made changes to dnsmasq’s configuration, we will need to restart its service so that it reads in our changes.
+
+We can restart dnsmasq by running the following command.
+
+sudo systemctl restart dnsmasq
+4. Because we made some changes to the dnsmasq service, we should check to ensure that it has started up correctly.
+
+We can check the status of our DNS server by using the command below..
+
+sudo systemctl status dnsmasq
+If the status shows as “Active: active (running)” then you now have your Raspberry Pi successfully running as a DNS Server.
+
+You should now be able to point your device to the Rasberry Pi’s IP address to utilize it as a DNS server.
+
+Testing the Raspberry Pi DNS Server
+1. If you want to test the results of your Raspberry Pi DNS server without changing your DNS you can by making use of the “dig” tool.
+
+To use the dig tool on your Raspberry Pi, you will need to first install the “dnsutils” package by running the command below.
+
+sudo apt install dnsutils
+2. With the “dnsutils” package installed to the Raspberry Pi, we can go ahead and query our Pi DNS server by running the command below.
+
+Using “@localhost” we are telling the dig tool to utilize the localhost’s DNS server for the DNS lookup.
+
+dig pimylifeup.com @localhost
+3. From this command, you should get a response as we have below.
+
+This response shows the answer that the dig software retrieved from the Raspberry Pi’s DNS server.
+
+From this response, you can see how long the query took to complete as well as additional information.
+
+pi@raspberrypi:~ $ dig pimylifeup.com
+
+; &lt;&lt;&gt;&gt; DiG 9.11.5-P4-5.1-Raspbian &lt;&lt;&gt;&gt; pimylifeup.com
 ;; global options: +cmd
 ;; Got answer:
-;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 40018
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 40018
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
@@ -11700,7 +11842,15 @@ pimylifeup.com.         257     IN      A       104.25.43.22
 ;; Query time: 45 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1)
 ;; WHEN: Thu Aug 01 08:04:35 BST 2019
-;; MSG SIZE  rcvd: 75&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;4.&lt;/span&gt;&lt;span&gt; If you rerun the command, you will notice that the query time will be significantly reduced as it can retrieve the DNS request from the cache.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;As we are requesting from localhost, you should have a query time close to &lt;/span&gt;&lt;span&gt;0 msec&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;;; Query time: 0 msec&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;span&gt;Hopefully, by now, you will have successfully set up your Raspberry Pi to act as a DNS server for your network. If you run into any issues or have any feedback, feel free to drop a comment below.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px; display: block; min-width: 100%;&quot;&gt;&lt;div style=&quot;background-color: transparent; font: inherit; vertical-align: baseline;&quot;&gt;&lt;div style=&quot;background-color: transparent; font: inherit; vertical-align: baseline; font-family: 'PT Serif'; font-size: 16px; line-height: 1.5em; color: #1f0909; text-align: left;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; width: 36em; z-index: 200; padding-left: 2em; padding-right: 2em; margin-left: auto; margin-right: auto; position: relative;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; position: relative; margin-left: -25px; margin-right: 25px;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; padding-top: 0px; padding-bottom: 9em; position: relative;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; margin-bottom: 1.5em;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; position: relative; margin-bottom: 0px;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; margin-bottom: 0px;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; margin-bottom: 0px;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; margin-bottom: 0px;&quot;&gt;&lt;div style=&quot;margin: 0px; padding: 0px; border: 0px; font: inherit; vertical-align: baseline; margin-bottom: 0px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/en-note&gt;</pre>
+;; MSG SIZE  rcvd: 75
+4. If you rerun the command, you will notice that the query time will be significantly reduced as it can retrieve the DNS request from the cache.
+
+As we are requesting from localhost, you should have a query time close to 0 msec.
+
+;; Query time: 0 msec
+Hopefully, by now, you will have successfully set up your Raspberry Pi to act as a DNS server for your network. If you run into any issues or have any feedback, feel free to drop a comment below.
+
+</pre>
 </div>
 <div height="360" title="image-00100_corr_wb.jpg" type="image/jpeg" width="640">
 <pre>/9j/4AAQSkZJRgABAQAAAQABAAD/4QAqRXhpZgAASUkqAAgAAAABADEBAgAHAAAAGgAAAAAAAABH
